@@ -1,0 +1,31 @@
+@use "@styles/reset" as *;
+@use "@styles/mixin" as *;
+@use "@styles/variables" as *;
+
+.root {
+  background-color: $d-v-dark-desaturated-blue;
+  z-index: 5000;
+  @include fullScreen;
+  @include centerItem;
+
+  &.anim {
+    animation: flashAnim 1.5s linear forwards;
+    position: absolute;
+  }
+
+  p {
+    display: none;
+  }
+
+  h1 {
+    color: $d-light-grayish-blue;
+    font-size: 32px;
+    font-weight: 700;
+  }
+}
+
+@keyframes flashAnim {
+  100% {
+    transform: translateY(-100vh);
+  }
+}

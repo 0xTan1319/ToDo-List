@@ -1,0 +1,44 @@
+@use "@styles/mixin" as *;
+@use "@styles/variables" as *;
+
+.root {
+  font-size: 0.8rem;
+  border-bottom: 1px solid #e4e5f1;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include breakpoint("sm") {
+    padding: 1.25rem;
+    font-size: 1.1rem;
+  }
+
+  label {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+
+    input {
+      @include circle;
+
+      &:checked {
+        background-image: url("./icon-check.svg"),
+          linear-gradient(to bottom, #57ddff, #c058f3);
+        background-size: 10px, contain;
+        background-repeat: no-repeat, no-repeat;
+        background-position: center, center;
+      }
+
+      &:checked + p {
+        text-decoration: line-through;
+        color: #adadad;
+      }
+    }
+  }
+
+  img {
+    cursor: pointer;
+  }
+}

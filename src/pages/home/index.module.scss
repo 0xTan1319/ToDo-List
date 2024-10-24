@@ -1,0 +1,136 @@
+@use "@styles/mixin" as *;
+@use "@styles/variables" as *;
+
+.root {
+  padding: 2.5rem 1.25rem;
+
+  @include breakpoint("sm") {
+    max-width: 530px;
+    padding: 4.7rem 3rem 0;
+    position: relative;
+    margin: auto;
+  }
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+
+  &_title {
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $l-v-light-gray;
+
+    @include breakpoint("sm") {
+      font-size: 2.5rem;
+      letter-spacing: 15px;
+    }
+  }
+
+  &_login {
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    justify-self: end;
+    font-weight: 700;
+    background-color: white;
+  }
+
+  &_toggle {
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+  }
+}
+
+.body {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.5rem auto;
+
+  @include breakpoint("sm") {
+    gap: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  &_form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+
+    &_checkbox {
+      @include circle;
+      position: absolute;
+      left: 15px;
+
+      &:checked {
+        background-image: url(./icon-check.svg),
+          linear-gradient(to bottom, #57ddff, #c058f3);
+        background-size: 10px, contain;
+        background-repeat: no-repeat, no-repeat;
+        background-position: center, center;
+      }
+
+      @include breakpoint("sm") {
+        left: 20px;
+      }
+    }
+
+    &_new {
+      font-size: 0.8rem;
+      padding: 1rem;
+      padding-left: 2.75rem;
+      border-radius: 0.25rem;
+      width: 100%;
+      @include greyContainer;
+
+      @include breakpoint("sm") {
+        font-size: 1.1rem;
+        padding: 1.25rem 3.5rem;
+      }
+    }
+  }
+
+  &_list {
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0/0.1);
+    border-radius: 0.25rem;
+    @include greyContainer;
+  }
+
+  &_note {
+    font-size: 0.9rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    @include greyContainer;
+
+    &_clear {
+      cursor: pointer;
+    }
+  }
+}
+
+.footer {
+  font-size: 0.9rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0/0.1);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  @include greyContainer;
+
+  &_link {
+    cursor: pointer;
+
+    &.active {
+      color: #3a7bfd;
+      font-weight: 900;
+    }
+  }
+}

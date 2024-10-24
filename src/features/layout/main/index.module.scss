@@ -1,0 +1,19 @@
+@use "@styles/mixin" as *;
+@use "@styles/variables" as *;
+
+.root {
+  max-width: 1440px;
+  margin: auto;
+  @include fullScreen;
+  @include normalAnim;
+}
+
+.dark {
+  background: $d-v-dark-desaturated-blue url("./bg-mobile-dark.jpg") no-repeat;
+  background-size: contain;
+
+  @include breakpoint("sm") {
+    background: $d-v-dark-desaturated-blue url("./bg-desktop-dark.jpg")
+      no-repeat;
+  }
+}

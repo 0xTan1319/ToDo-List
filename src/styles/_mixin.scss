@@ -1,0 +1,56 @@
+@use "variables" as *;
+
+$breakpoints: (
+  "xm": 375px,
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1140px,
+  "xl": 1280px,
+  "2xl": 1440px,
+  "3xl": 1920px,
+);
+
+@mixin breakpoint($name) {
+  @media (min-width: map-get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin fullScreen {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+}
+
+@mixin centerItem {
+  display: grid;
+  place-items: center;
+}
+
+@mixin normalAnim {
+  transition: all ease-in-out 0.2s;
+}
+
+@mixin greyContainer {
+  background-color: #2c2f51;
+  color: #e4e5f1;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.4);
+}
+
+@mixin circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid $l-v-light-gray;
+
+  @include breakpoint("sm") {
+    width: 25px;
+    height: 25px;
+  }
+}
